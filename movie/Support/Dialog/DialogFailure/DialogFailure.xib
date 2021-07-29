@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DialogFailure" customModule="movie" customModuleProvider="target">
+            <connections>
+                <outlet property="labelMessage" destination="rPk-Py-yMa" id="TnG-fh-uRN"/>
+                <outlet property="view" destination="hYM-uB-mSF" id="YMD-NJ-gf2"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="hYM-uB-mSF">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="277"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8f-Ft-rKJ">
+                    <rect key="frame" x="32" y="197" width="350" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="7IA-5q-2jq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                    <state key="normal" title="Tutup" backgroundImage="bg_button_tosca">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="btnClose:" destination="-1" eventType="touchUpInside" id="Exm-mD-50P"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_x" translatesAutoresizingMaskIntoConstraints="NO" id="sM8-ou-9aK">
+                    <rect key="frame" x="183" y="44" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="fNJ-ET-ZwD"/>
+                        <constraint firstAttribute="width" constant="48" id="jpg-Ih-1ob"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terjadi gangguan jaringan silahkan coba beberapa saat lagi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPk-Py-yMa">
+                    <rect key="frame" x="32" y="133" width="350" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="xSE-2O-ufB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                    <color key="textColor" name="Color Gray"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="uj5-eH-4vZ"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="rPk-Py-yMa" firstAttribute="leading" secondItem="uj5-eH-4vZ" secondAttribute="leading" constant="32" id="5Od-ga-jQg"/>
+                <constraint firstItem="sM8-ou-9aK" firstAttribute="centerX" secondItem="hYM-uB-mSF" secondAttribute="centerX" id="5i5-eZ-Wnz"/>
+                <constraint firstItem="sM8-ou-9aK" firstAttribute="top" secondItem="uj5-eH-4vZ" secondAttribute="top" id="EdP-OZ-lzL"/>
+                <constraint firstItem="s8f-Ft-rKJ" firstAttribute="leading" secondItem="uj5-eH-4vZ" secondAttribute="leading" constant="32" id="Mlj-WA-wre"/>
+                <constraint firstItem="uj5-eH-4vZ" firstAttribute="bottom" secondItem="s8f-Ft-rKJ" secondAttribute="bottom" constant="32" id="OaF-UC-wT4"/>
+                <constraint firstItem="uj5-eH-4vZ" firstAttribute="trailing" secondItem="rPk-Py-yMa" secondAttribute="trailing" constant="32" id="UtR-zO-HLE"/>
+                <constraint firstItem="s8f-Ft-rKJ" firstAttribute="top" secondItem="rPk-Py-yMa" secondAttribute="bottom" constant="16" id="asb-sn-HWu"/>
+                <constraint firstItem="uj5-eH-4vZ" firstAttribute="trailing" secondItem="s8f-Ft-rKJ" secondAttribute="trailing" constant="32" id="teE-Ri-eJK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-65.217391304347828" y="148.32589285714286"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg_button_tosca" width="305" height="50"/>
+        <image name="ic_x" width="80" height="80"/>
+        <namedColor name="Color Gray">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
