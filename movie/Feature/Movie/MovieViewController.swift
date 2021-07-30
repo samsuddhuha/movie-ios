@@ -26,6 +26,7 @@ class MovieViewController: UIViewController, PopUpDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         tableMovie.delegate = self
         tableMovie.dataSource = self
@@ -45,7 +46,6 @@ class MovieViewController: UIViewController, PopUpDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
-
         setView()
     }
     
@@ -55,8 +55,8 @@ class MovieViewController: UIViewController, PopUpDelegate {
     
     private func setView(){
         module?.getListGenre(language: "en-US")
+        page = 1
         listMovie.removeAll()
-        
     }
     
     func handleAction(tag: String, data: Any) {
@@ -84,14 +84,16 @@ extension MovieViewController: ViewStateDelegate{
         case module?.TAG_GENRE:
             listGenre.removeAll()
             listGenre = data as! [Genre]
-            module?.getListMovie(idGenre: "", language: "en-US", page: page)
+            if idGenre != nil {
+                module?.getListMovie(idGenre: String(idGenre!) , language: "en-US", page: page)
+            }else{
+                module?.getListMovie(idGenre: "", language: "en-US", page: page)
+            }
         default:
-//            listMovie.removeAll()
             page = page + 1
             let temp = data as! [Movie]
             let _ = temp.map{listMovie.append($0)}
             tableMovie.reloadData()
-            
         }
     }
     
@@ -125,16 +127,33 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableMovie.dequeueReusableCell(withIdentifier: "movieviewcell") as! MovieViewCell
         let data = listMovie[indexPath.row]
         cell.imageMovie.image = nil
-        
-        
         cell.labelTitle.text = data.title
-        cell.labelReview.text = String(data.vote_average!)
-        cell.imageMovie.downloaded(from: BASE_URL_IMAGE+data.poster_path!)
+        
+        if data.vote_average != nil {
+            cell.labelReview.text = String(data.vote_average!)
+        }
+        if data.poster_path != nil {
+            cell.imageMovie.downloaded(from: BASE_URL_IMAGE+data.poster_path!)
+        }
         if data.release_date != nil {
             cell.labelRelease.text = "Release : \(convertDateFormatter(date: data.release_date!))"
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let temp = listMovie[indexPath.row]
+        
+        listMovie.removeAll()
+        toDetailMovie(data: temp)
+    }
+    
+    private func toDetailMovie(data: Movie) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Movie", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "moviedetailviewcontroller") as! MovieDetailViewController
+        viewController.data = data
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {

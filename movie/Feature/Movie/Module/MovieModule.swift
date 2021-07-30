@@ -12,7 +12,7 @@ import iOSNFramework
 protocol MovieDelegate {
     func getListGenre(language: String)
     func getListMovie(idGenre: String, language: String, page: Int)
-    func getVideo(idMoview: Int)
+    func getVideo(idMovie: Int)
 }
 
 class MovieModule: ModuleDelegate, MovieDelegate {
@@ -38,7 +38,7 @@ class MovieModule: ModuleDelegate, MovieDelegate {
 
             do {
                 _ = try response.filterSuccessfulStatusCodes()
-//                print(data)
+                
                 let dataMap = try JSONDecoder().decode([Genre].self, from: data["genres"].rawData())
                 self.network.onSucess(data: dataMap, message: data[KEY_MESSAGE].stringValue)
 
@@ -67,15 +67,10 @@ class MovieModule: ModuleDelegate, MovieDelegate {
 
             do {
                 _ = try response.filterSuccessfulStatusCodes()
-//                print(data)
+                
                 let dataMap = try JSONDecoder().decode([Movie].self, from: data["results"].rawData())
                 self.network.onSucess(data: dataMap, message: data[KEY_MESSAGE].stringValue)
                 
-//                if page == 1{
-//                    self.network.onSucess(data: dataMap, message: data[KEY_MESSAGE].stringValue)
-//                }else{
-//                    self.network.onUpdate(data: dataMap, message: data[KEY_MESSAGE].stringValue)
-//                }
                 
             } catch {
                 self.network.onLoading(isLoading: false, message: "")
@@ -88,11 +83,11 @@ class MovieModule: ModuleDelegate, MovieDelegate {
         }})
     }
     
-    func getVideo(idMoview: Int) {
+    func getVideo(idMovie: Int) {
         self.network.networkConfiguration(tag: TAG_VIDEO_MOVIE)
         self.network.onLoading(isLoading: true, message: "")
 
-        commonService.request(Common.trailer(id: idMoview), completion: {result in switch result {
+        commonService.request(Common.trailer(id: idMovie), completion: {result in switch result {
         
 
         case .success(let response):
@@ -101,9 +96,9 @@ class MovieModule: ModuleDelegate, MovieDelegate {
 
             do {
                 _ = try response.filterSuccessfulStatusCodes()
-                print(data)
-//                let dataMap = try JSONDecoder().decode([Genre].self, from: data["genres"].rawData())
-//                self.network.onSucess(data: dataMap, message: data[KEY_MESSAGE].stringValue)
+                
+                let dataMap = try JSONDecoder().decode([ResultVideo].self, from: data["results"].rawData())
+                self.network.onSucess(data: dataMap, message: data[KEY_MESSAGE].stringValue)
 
             } catch {
                 print(data)
