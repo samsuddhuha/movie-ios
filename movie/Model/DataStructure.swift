@@ -19,3 +19,8 @@ struct Movie: Decodable {
     var id, vote_count: Int?
     var vote_average: Float?
 }
+
+
+struct ResultVideo: Decodable {
+    var key: String?
+}
