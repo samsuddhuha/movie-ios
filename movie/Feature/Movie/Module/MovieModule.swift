@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftyJSON
-import iOSNFramework
 
 protocol MovieDelegate {
     func getListGenre(language: String)

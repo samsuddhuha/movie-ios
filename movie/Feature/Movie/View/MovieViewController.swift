@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import iOSNFramework
 
 class MovieViewController: UIViewController, PopUpDelegate {
     
@@ -101,10 +100,6 @@ extension MovieViewController: ViewStateDelegate{
         DialogFailure().showDialog(parent: self, message: message)
     }
     
-    func onUpdate(data: Any?, tag: String, message: String) {
-        
-    }
-    
     func onLoading(isLoading: Bool, tag: String, message: String) {
         if page == 1 {
             showLoadingView(state: isLoading)
@@ -129,14 +124,14 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource{
         cell.imageMovie.image = nil
         cell.labelTitle.text = data.title
         
-        if data.vote_average != nil {
-            cell.labelReview.text = String(data.vote_average!)
+        if data.voteAverage != nil {
+            cell.labelReview.text = String(data.voteAverage!)
         }
-        if data.poster_path != nil {
-            cell.imageMovie.downloaded(from: BASE_URL_IMAGE+data.poster_path!)
+        if data.posterPath != nil {
+            cell.imageMovie.downloaded(from: BASE_URL_IMAGE+data.posterPath!)
         }
-        if data.release_date != nil {
-            cell.labelRelease.text = "Release : \(convertDateFormatter(date: data.release_date!))"
+        if data.releaseDate != nil {
+            cell.labelRelease.text = "Release : \(convertDateFormatter(date: data.releaseDate!))"
         }
         
         return cell

@@ -1,16 +1,16 @@
 //
-//  BaseApp.swift
-//  iOSNFramework
+//  ViewStateDelegate.swift
+//  movie
 //
-//  Created by noizar on 30/01/19.
+//  Created by Samsud Dhuha on 08/08/21.
 //
 
 import Foundation
+import UIKit
 
 public protocol ViewStateDelegate{
     func onSuccess(data:Any?,tag:String,message:String)
     func onFailure(data:Any?,tag:String,message:String)
-    func onUpdate(data:Any?,tag:String,message:String)
     func onLoading(isLoading:Bool,tag:String,message:String)
 }
 
@@ -32,10 +32,6 @@ open class NetworkState {
     
     public func onFailure(data:Any,message:String)  {
         viewDelegate.onFailure(data: data, tag: self.tag, message: message)
-    }
-    
-    public func onUpdate(data:Any,message:String)  {
-        viewDelegate.onUpdate(data: data, tag: self.tag, message: message)
     }
     
     public func onLoading(isLoading:Bool,message:String) {

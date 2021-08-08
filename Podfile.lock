@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (5.4.3)
-  - iOSNFramework (0.1.1)
   - MaterialComponents/Availability (124.2.0)
   - MaterialComponents/BottomSheet (124.2.0):
     - MaterialComponents/Elevation
@@ -40,7 +39,6 @@ PODS:
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
-  - iOSNFramework
   - MaterialComponents/BottomSheet
   - Moya (~> 14.0)
   - NVActivityIndicatorView (~> 4.4)
@@ -49,7 +47,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - iOSNFramework
     - MaterialComponents
     - Moya
     - NVActivityIndicatorView
@@ -57,12 +54,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
-  iOSNFramework: e5b6a8aaf6f6e4bd0a745dcf291c14ad14cea68a
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 7ca2a13b6e8aa8eff7dd1cf9a4b8301feb724298
+PODFILE CHECKSUM: 25241780f60b2153f4f723093b84b199c227f2d0
 
 COCOAPODS: 1.10.1

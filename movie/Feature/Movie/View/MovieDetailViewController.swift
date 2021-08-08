@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import iOSNFramework
 import WebKit
 
 class MovieDetailViewController: UIViewController, WKNavigationDelegate {
@@ -42,9 +41,9 @@ class MovieDetailViewController: UIViewController, WKNavigationDelegate {
         module?.getVideo(idMovie: (data?.id)!)
         
         labelTitle.text = data?.title
-        labelReview.text = String((data?.vote_average)!)
+        labelReview.text = String((data?.voteAverage)!)
         labelOverview.text = data?.overview
-        imageMovie.downloaded(from: BASE_URL_IMAGE+(data?.poster_path!)!)
+        imageMovie.downloaded(from: BASE_URL_IMAGE+(data?.posterPath!)!)
     }
 }
 
@@ -60,10 +59,6 @@ extension MovieDetailViewController: ViewStateDelegate{
     
     func onFailure(data: Any?, tag: String, message: String) {
         DialogFailure().showDialog(parent: self, message: message)
-    }
-    
-    func onUpdate(data: Any?, tag: String, message: String) {
-        
     }
     
     func onLoading(isLoading: Bool, tag: String, message: String) {

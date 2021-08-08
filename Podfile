@@ -6,11 +6,9 @@ target 'movie' do
   use_frameworks!
 
   # Pods for movie
-  
   pod 'MaterialComponents/BottomSheet'
   pod 'SwiftyJSON'
   pod 'Moya', '~> 14.0'
-  pod 'iOSNFramework'
   pod 'NVActivityIndicatorView', '~> 4.4'
 
   target 'movieTests' do
