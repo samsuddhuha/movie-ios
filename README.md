@@ -1,5 +1,7 @@
 # movie-ios
 
+iOS Swift Storyboard show list of movies using MVP iOSNFramework design pattern
+
 step clone
 - open cmd
 - git clone https://github.com/samsuddhuha/movie-ios.git
