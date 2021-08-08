@@ -1,6 +1,6 @@
 # movie-ios
 
-iOS Swift Storyboard show list of movies using MVP iOSNFramework design pattern
+iOS Swift Storyboard show list of movies using MVP design pattern
 
 step clone
 - open cmd
